@@ -15,6 +15,20 @@
 		C81052931C6CAEF400232B37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81052911C6CAEF400232B37 /* LaunchScreen.storyboard */; };
 		C810529E1C6CAEF500232B37 /* MyMessengerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C810529D1C6CAEF500232B37 /* MyMessengerTests.m */; };
 		C81052A91C6CAEF500232B37 /* MyMessengerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C81052A81C6CAEF500232B37 /* MyMessengerUITests.m */; };
+		C81052B91C6CB5CA00232B37 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81052B71C6CB5CA00232B37 /* SetupViewController.m */; };
+		C81052BA1C6CB5CA00232B37 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81052B81C6CB5CA00232B37 /* SetupViewController.xib */; };
+		C81052BE1C6CBE3500232B37 /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81052BC1C6CBE3500232B37 /* MemberListViewController.m */; };
+		C81052BF1C6CBE3500232B37 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81052BD1C6CBE3500232B37 /* MemberListViewController.xib */; };
+		C81052C11C6CBF0E00232B37 /* MemberViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81052C01C6CBF0E00232B37 /* MemberViewCell.xib */; };
+		C81052C41C6CBFD800232B37 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C81052C31C6CBFD800232B37 /* TableViewCell.m */; };
+		C81052C61C6CC16200232B37 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052C51C6CC16200232B37 /* box.png */; };
+		C81052C81C6CC17200232B37 /* ChatFaceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052C71C6CC17200232B37 /* ChatFaceIcon.png */; };
+		C81052CD1C6CC4C000232B37 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052C91C6CC4C000232B37 /* first.png */; };
+		C81052CE1C6CC4C000232B37 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052CA1C6CC4C000232B37 /* first@2x.png */; };
+		C81052CF1C6CC4C000232B37 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052CB1C6CC4C000232B37 /* second.png */; };
+		C81052D01C6CC4C000232B37 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052CC1C6CC4C000232B37 /* second@2x.png */; };
+		C81052D21C6CC4E100232B37 /* tar_box.png in Resources */ = {isa = PBXBuildFile; fileRef = C81052D11C6CC4E100232B37 /* tar_box.png */; };
+		C89E6A861C6E1CF500F4AFA2 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89E6A851C6E1CF500F4AFA2 /* NetworkController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +65,24 @@
 		C81052A41C6CAEF500232B37 /* MyMessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMessengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81052A81C6CAEF500232B37 /* MyMessengerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMessengerUITests.m; sourceTree = "<group>"; };
 		C81052AA1C6CAEF500232B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C81052B61C6CB5CA00232B37 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		C81052B71C6CB5CA00232B37 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		C81052B81C6CB5CA00232B37 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
+		C81052BB1C6CBE3500232B37 /* MemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberListViewController.h; sourceTree = "<group>"; };
+		C81052BC1C6CBE3500232B37 /* MemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberListViewController.m; sourceTree = "<group>"; };
+		C81052BD1C6CBE3500232B37 /* MemberListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
+		C81052C01C6CBF0E00232B37 /* MemberViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberViewCell.xib; sourceTree = "<group>"; };
+		C81052C21C6CBFD800232B37 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		C81052C31C6CBFD800232B37 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		C81052C51C6CC16200232B37 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		C81052C71C6CC17200232B37 /* ChatFaceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatFaceIcon.png; sourceTree = "<group>"; };
+		C81052C91C6CC4C000232B37 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		C81052CA1C6CC4C000232B37 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		C81052CB1C6CC4C000232B37 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		C81052CC1C6CC4C000232B37 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		C81052D11C6CC4E100232B37 /* tar_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tar_box.png; sourceTree = "<group>"; };
+		C89E6A841C6E1CF500F4AFA2 /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
+		C89E6A851C6E1CF500F4AFA2 /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +133,24 @@
 		C81052821C6CAEF400232B37 /* MyMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				C89E6A841C6E1CF500F4AFA2 /* NetworkController.h */,
+				C89E6A851C6E1CF500F4AFA2 /* NetworkController.m */,
+				C81052D11C6CC4E100232B37 /* tar_box.png */,
+				C81052C91C6CC4C000232B37 /* first.png */,
+				C81052CA1C6CC4C000232B37 /* first@2x.png */,
+				C81052CB1C6CC4C000232B37 /* second.png */,
+				C81052CC1C6CC4C000232B37 /* second@2x.png */,
+				C81052C51C6CC16200232B37 /* box.png */,
+				C81052C71C6CC17200232B37 /* ChatFaceIcon.png */,
+				C81052C01C6CBF0E00232B37 /* MemberViewCell.xib */,
+				C81052C21C6CBFD800232B37 /* TableViewCell.h */,
+				C81052C31C6CBFD800232B37 /* TableViewCell.m */,
+				C81052BB1C6CBE3500232B37 /* MemberListViewController.h */,
+				C81052BC1C6CBE3500232B37 /* MemberListViewController.m */,
+				C81052BD1C6CBE3500232B37 /* MemberListViewController.xib */,
+				C81052B61C6CB5CA00232B37 /* SetupViewController.h */,
+				C81052B71C6CB5CA00232B37 /* SetupViewController.m */,
+				C81052B81C6CB5CA00232B37 /* SetupViewController.xib */,
 				C81052861C6CAEF400232B37 /* AppDelegate.h */,
 				C81052871C6CAEF400232B37 /* AppDelegate.m */,
 				C81052891C6CAEF400232B37 /* ViewController.h */,
@@ -243,8 +293,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81052C11C6CBF0E00232B37 /* MemberViewCell.xib in Resources */,
+				C81052BF1C6CBE3500232B37 /* MemberListViewController.xib in Resources */,
+				C81052D21C6CC4E100232B37 /* tar_box.png in Resources */,
+				C81052BA1C6CB5CA00232B37 /* SetupViewController.xib in Resources */,
+				C81052CE1C6CC4C000232B37 /* first@2x.png in Resources */,
+				C81052CD1C6CC4C000232B37 /* first.png in Resources */,
+				C81052CF1C6CC4C000232B37 /* second.png in Resources */,
+				C81052C81C6CC17200232B37 /* ChatFaceIcon.png in Resources */,
 				C81052931C6CAEF400232B37 /* LaunchScreen.storyboard in Resources */,
 				C81052901C6CAEF400232B37 /* Assets.xcassets in Resources */,
+				C81052C61C6CC16200232B37 /* box.png in Resources */,
+				C81052D01C6CC4C000232B37 /* second@2x.png in Resources */,
 				C810528E1C6CAEF400232B37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,7 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81052BE1C6CBE3500232B37 /* MemberListViewController.m in Sources */,
+				C81052C41C6CBFD800232B37 /* TableViewCell.m in Sources */,
+				C81052B91C6CB5CA00232B37 /* SetupViewController.m in Sources */,
 				C810528B1C6CAEF400232B37 /* ViewController.m in Sources */,
+				C89E6A861C6E1CF500F4AFA2 /* NetworkController.m in Sources */,
 				C81052881C6CAEF400232B37 /* AppDelegate.m in Sources */,
 				C81052851C6CAEF400232B37 /* main.m in Sources */,
 			);
@@ -498,6 +562,7 @@
 				C81052AF1C6CAEF500232B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C81052B01C6CAEF500232B37 /* Build configuration list for PBXNativeTarget "MyMessengerTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +571,7 @@
 				C81052B21C6CAEF500232B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C81052B31C6CAEF500232B37 /* Build configuration list for PBXNativeTarget "MyMessengerUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +580,7 @@
 				C81052B51C6CAEF500232B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
