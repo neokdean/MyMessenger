@@ -1,3 +1,4 @@
+
 //
 //  NetworkController.m
 //  MyMessenger
@@ -7,6 +8,15 @@
 //
 
 #import "NetworkController.h"
+#import "MemberListDataModel.h"
+#import "ChanDataModel.h"
+#import "MemberListViewController.h"
+#import "ChanViewController.h"
+#import <sys/types.h>
+#import <sys/socket.h>
+#import <netinet/in.h>
+#import <netdb.h>
+#import <arpa/inet.h>
 
 @interface NetworkController ()
 
@@ -70,6 +80,161 @@
     CFRelease(addressData);
 
 }
+
+void SocketCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info) {
+    NetworkController *pNetworkcontroller = (__bridge NetworkController *)info;
+    
+    if(callbackType == kCFSocketDataCallBack) {
+        if(pNetworkcontroller.pReturnData == nil) {
+            pNetworkcontroller.pReturnData = [[NSMutableData alloc] init];
+        }
+        
+        const UInt8 *buf = CFDataGetBytePtr((CFDataRef)data);
+        long len = CFDataGetLength((CFDataRef)data);
+        
+        if(len)
+            [pNetworkcontroller.pReturnData appendBytes:buf  length:len];
+        NSString *receiveStr = [[NSString alloc] initWithData:pNetworkcontroller.pReturnData encoding:NSUTF8StringEncoding];
+        
+        if([receiveStr rangeOfString:@"\r\n"].location) !=NSNotFound) {
+            switch (pNetworkcontroller.pStatus) {
+                case CLOSED:
+                    break;
+                case CONN:
+                {
+                    pNetworkcontroller.pStatus = LOG:
+                    [pNetworkcontroller sendLoginCommand];
+                    break;
+                }
+                
+                case LOG:
+                {
+                    int returnCode = [[receiveStr substringWithRange:NSMakeRange(0,3)] intValue];
+                    if(returnCode == 200) {
+                        pNetworkcontroller.pStatus = LIST;
+                        [pNetworkcontroller SendListCommand];
+                    } else {
+                        pNetworkcontroller.pStatus = CONN;
+                    }
+                    
+                    break;
+                }
+                    
+                case LIST:
+                {
+                    [pNetworkcontroller setMemberList:receiveStr];
+                    [pNetworkcontroller.pMemberListViewController.pListView reloadData];
+                    pNetworkcontroller.pStatus = WAIT;
+                    break;
+                }
+                
+                case REQV:
+                {
+                    int returnCode = [[receiveStr substringWithRange:NSMakeRange(0,3)] intValue];
+                    if(returnCode == 400)
+                        [pNetworkcontroller startChat];
+                    else
+                        pNetworkcontroller = WAIT;
+                    break;
+                }
+
+                case CHAT:
+                {
+                    [pNetworkcontroller ReceiveChatText:receiveStr];
+                    break;
+                }
+                
+                case TEXT:
+                {
+                    [pNetworkcontroller SendChatText];
+                    break;
+                }
+                
+                default:
+                    break;
+            }
+            pNetworkcontroller.pReturnData = nil;
+        }
+        
+    }
+    
+    if(callbackType == kCFSocketConnectCallBack) {
+        pNetworkcontroller.pStatus = CONN;
+    }
+}
+
+
+-(void)SendDataString:(NSString*)strMessage {
+    if(self.pStatus == CLOSED)
+        return;
+    NSString *msg = [NSString stringWithFormat:@"%@", strMessage];
+    NSData *msgData = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    CFSocketSendData(pSocket, NULL, (CFDataRef)msgData, 30);  m
+}
+
+-(void)SendLoginCommand {
+    NSString *str = [NSString stringWithFormat:@"CONN %@ %@\r\n",pMyUserID, pMyPassword];
+    [self SendDataString:str];
+}
+
+-(void)SendListCommand {
+    NSString *str = [NSString stringWithFormat:@"LIST\r\n"];
+    [self SendDataString:str];
+}
+
+-(void)SendChatTextCommand {
+    pStatus = TEXT;
+    NSString *str = [NSString stringWithFormat:@"TEXT\r\n"];
+    [self SendDataString:str];
+}
+
+-(void)SendChatText {
+    pStatus = CHAT;
+    NSString *str = [NSString stringWithFormat:@"%@\r\n",pChatViewController.pTextView.text];
+    [self SendDataString:str];
+    [self addChatMessage:str DisTime:[self getTime] forDirection:true ReLoadData:true];
+}
+
+-(void)ReceiveChatText:(NSString*)strMessage {
+    [self addChatMessage:strMessage DisTime:[self getTime] forDirection:false ReLoadData:true];
+}
+
+-(void)sendReqvCommand:(int)index {
+    MemberListDataModel *rowData = [pMemberListData objectAtIndex:index];
+    pStatus = REQV;
+    NSString *str = [NSString stringWithFormat:@"REQV %@\r\n", rowData.pUserID];
+    pChatTargetIndex = index;
+    [self SendDataString:str];
+}
+
+-(void)ReceiveReqvCommand:(NSString*)strMessage {
+    NSArray *messageArr = [strMessage componentsSeparatedByString:@" "];
+    NSString *tId = [[messageArr objectAtIndex:1] substringToIndex:[[messageArr objectAtIndex:1] rangeOfString:@"\r\n"].location];
+    pChatTargetIndex = [self searchUserID:tId];
+    if(pChatTargetIndex == -1) {
+        NSString *str = [NSString stringWithFormat:@"REPL %@ N\r\n", tId];
+        [self SendDataString:str];
+    } else {
+        NSString *str = [NSString stringWithFormat:@"REPL %@ Y\r\n", tId];
+        [self SendDataString:str];
+        [self startChat];
+    }
+}
+
+-(void)startChat {
+    pStatus = CHAT;
+    [self.pMemberListViewController ChatViewShow];
+}
+
+-(void)setMemberList:(NSString*)strMessage {
+    NSArray *memberArr = [strMessage componentsSeparatedByString:@"#"];
+    for(int i = 0; i < [memberArr count]; i++) {
+        NSArray *memberInfo = [memberArr objectAtIndex:i];
+        [self setMemberInformation:[memberInfo componentsS]]
+    }
+}
+
+
 /*
 #pragma mark - Navigation
 

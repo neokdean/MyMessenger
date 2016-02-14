@@ -23,7 +23,7 @@
     ChatViewController *pChatViewController;
     
     //socket functions
-    CFSocketRef pSockRef;
+    CFSocketRef pSocket;
     CFRunLoopSourceRef pRunSource;
     NSMutableData *pReturnData; // ????
     NetworkController *pNetworkController;
